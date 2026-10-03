@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Timestamp Microservice</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600" rel="stylesheet" type="text/css">
+    <link href="style.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <main>
+      <h1>Timestamp Microservice</h1>
+      <p class="now" id="now">Saturday, October 3, 2026</p>
+      <p class="intro">Send a date or a unix time to the API and get both formats back as JSON.</p>
+
+      <h2>How to use</h2>
+      <ul>
+        <li>By date: <a href="api/2026-10-03">/api/2026-10-03</a></li>
+        <li>By unix time: <a href="api/1790985600000">/api/1790985600000</a></li>
+        <li>Current time: <a href="api/">/api/</a></li>
+      </ul>
+
+      <h2>What you get back</h2>
+      <code>{"unix":1790985600000, "utc":"Sat, 03 Oct 2026 00:00:00 GMT"}</code>
+
+      <footer>
+        Made by Manjot Chamdal
+      </footer>
+    </main>
+
+    <script>
+      var now = document.getElementById('now');
+      function tick() {
+        var d = new Date();
+        now.textContent = d.toUTCString().replace(' GMT', ' UTC');
+      }
+      tick();
+      setInterval(tick, 1000);
+    </script>
+  </body>
+</html>
